@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        var num = 123;
+        function fn1() {
+            console.log(num);   //123
+        }   //调用位置不影响作用与位置 他获取变量仍然是从全局变量获取 不从fn2中获取num值
+        function fn2() {
+            console.log(num);   //undefined
+            var num = 456;
+            fn1();
+            console.log(num)    //456
+        }
+        fn2()
+
+        function q(a) {
+            console.log(a)  //100 跟在function前添加一个全局变量var a = 100一样 已经在外部声明过
+            var a = 10;
+            console.log(a)  //10
+        }
+        q(100)
+    </script>
+</body>
+</html>
