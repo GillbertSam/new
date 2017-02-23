@@ -6,24 +6,78 @@
 </head>
 <body>
     <script type="text/javascript">
-        var num = 123;
-        function fn1() {
-            console.log(num);   //123
-        }   //调用位置不影响作用与位置 他获取变量仍然是从全局变量获取 不从fn2中获取num值
-        function fn2() {
-            console.log(num);   //undefined
-            var num = 456;
-            fn1();
-            console.log(num)    //456
-        }
-        fn2()
+        // var num = 123;
+        // function fn1() {
+        //     console.log(num);   //123
+        // }   //调用位置不影响作用与位置 他获取变量仍然是从全局变量获取 不从fn2中获取num值
+        // function fn2() {
+        //     console.log(num);   //undefined
+        //     var num = 456;
+        //     fn1();
+        //     console.log(num)    //456
+        // }
+        // fn2()
 
-        function q(a) {
-            console.log(a)  //100 跟在function前添加一个全局变量var a = 100一样 已经在外部声明过
-            var a = 10;
-            console.log(a)  //10
+        // function q(a) {
+        //     console.log(a)  //100 跟在function前添加一个全局变量var a = 100一样 已经在外部声明过
+        //     var a = 10;
+        //     console.log(a)  //10
+        // }
+        // q(100)
+
+        // //引用类型传参 值传参
+        // var a = 10;
+        // (function fn(a) {
+        //     console.log(a);
+        //     a = 20;
+        //     var a = 100
+        //     console.log(a);
+        // })(10);
+        // console.log(a);
+
+
+
+        // var a = 1;
+        // var b = {x:1};
+        // function q(a) {
+        //     a.x = 5;
+        //     console.log(a.x);
+        //     var a= {x:6};
+        //     console.log(a)
+        // }
+        // function w() {
+        //     a = 2
+        //     console.log(a)
+        // }
+        // q(b);   //5
+        // console.log(b);//1
+        // w();
+        // console.log(a);//2
+
+        //foo只是一个地址 xxff00
+        //var foo = {x:1};
+        //~function(param) {
+           // console.log(param.x)    //1
+            //捕获到的是foo的引用 会直接改变堆空间中foo的值
+            //param.x = 2;
+            //新建了一个foo对象 foo是另一个地址 xxff01 与xxff00无关
+            //var foo = {x:3};
+            //打印xxff01的值与属性
+            //console.log(foo.x)      //3
+        //}(foo)
+        //console.log(foo.x);         //2
+
+          var a = prompt("number");
+        switch(a) {
+            case  '1':
+            console.log(2);
+            break;
+            case  '2':
+            console.log(5);
+            break;
         }
-        q(100)
+c = 1;
+c = 2;
     </script>
 </body>
 </html>
